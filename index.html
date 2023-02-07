@@ -49,7 +49,7 @@
             </li>
             <li>
               <a class="link nav-header-contact" href="tel:+14251234563"
-                ><svg class="nav-icon" width="16px" height="12px">
+                ><svg class="nav-icon" width="12px" height="16px">
                   <use href="./images/icons.svg#icon-telephone"></use>
                 </svg>
                 +38 096 111 11 11</a
@@ -67,7 +67,7 @@
             Ефективні рішення для <br />
             вашого бізнесу
           </h1>
-          <button class="button-aktion" type="button">Замовити послугу</button>
+          <button class="button-aktion" data-modal-open type="button">Замовити послугу</button>
         </div>
       </section>
       <!-- Advantages -->
@@ -131,25 +131,31 @@
           <h2 class="title-section">Чим ми займаємося</h2>
           <ul class="works-box">
             <li>
+              <div class="works-item">
               <img
                 src="./images/box1(1).jpg"
                 alt="computer equipment on table with programming process on screens"
-                width="370"
-              />
+                width="370"/>
+               <p class="label">Десктопні додатки</p> 
+              </div>
             </li>
             <li>
+              <div class="works-item">
               <img
                 src="./images/box2(1).jpg"
                 alt="smartphone in hands in front of laptop screen with image of mobile applications"
                 width="370"
-              />
+              /><p class="label">Десктопні додатки</p> 
+            </div>
             </li>
             <li>
+              <div class="works-item">
               <img
                 src="./images/box3(1).jpg"
                 alt="Gadget tablet with a color palette on the screen"
                 width="370"
-              />
+              /><p class="label">Десктопні додатки</p> 
+            </div>
             </li>
           </ul>
         </div>
@@ -405,5 +411,16 @@
         </div>
       </section>
     </footer>
+    <!-- модальне вікно -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-button" type="button" data-modal-close>
+          <svg class='close-icon' width='18px' height='18px'>
+        <use href='./images/close-black-18dp.svg'></use>
+        </svg> </button>
+          <p></p>
+        </div>
+      </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
