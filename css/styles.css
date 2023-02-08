@@ -8,6 +8,8 @@
     --conteiner-color: #eeeeee;
     --logo-color: black;
     --social-icon-color: #AFB1B8;
+    --anim-icon: transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* основні */
@@ -249,7 +251,7 @@ p {
     display: flex;
 }
 
-.nav-adress li {
+.nav-adress li:not(:first-child) {
     padding-left: 50px;
 }
 
@@ -461,26 +463,27 @@ p {
 
 .clients-list {
     display: flex;
-    justify-content: space-between;
-    width: 170px;
     gap: 30px;
     margin-top: 50px;
 }
 
 .icon-link-client {
     display: flex;
-    width: 170px;
+    width: 100%;
+    height: 100%;
     justify-content: center;
-}
-
-.clients-item {
-    display: flex;
     align-items: center;
-    width: 170px;
-    height: 92px;
     border: 1px solid var(--text-color);
     border-radius: 4px;
     outline: transparent;
+}
+
+.clients-item {
+    /* display: flex;
+    align-items: center; */
+    width: 170px;
+    height: 92px;
+   
 }
 
 .clients-icon {
@@ -488,15 +491,15 @@ p {
     text-align: center;
 }
 
-.clients-icon:hover,
-.clients-icon:focus {
+.icon-link-client:hover .clients-icon,
+.icon-link-client:focus .clients-icon {
     fill: var(--accent-color);
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.clients-item:hover,
-.clients-item:focus {
+.icon-link-client:hover,
+.icon-link-client:focus {
     border: 1px solid var(--accent-color);
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -609,6 +612,7 @@ p {
 }
 
 /* Портфоліо 2 */
+a { text-decoration: none;}
 
 .portfolio {
     padding-top: 94px;
@@ -622,7 +626,6 @@ p {
     border-left: 1px solid var(--conteiner-color);
 }
 
-
 .title-porfolio {
     font-weight: 700;
     font-size: 18px;
@@ -633,8 +636,10 @@ p {
 }
 
 .text-portfolio {
+    font-weight: 400;
     font-size: 16px;
-    /* padding: 0 24px 20px 24px; */
+    line-height: calc(30/16);
+color: var(--text-color);    
 }
 
 .portfolio-filter {
@@ -655,16 +660,17 @@ p {
     background-color: var(--accent-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
         0px 2px 2px rgba(0, 0, 0, 0.12);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+        transition: var(--anim-icon);
+    }
 
+.portfolio-a {
+    display: block;
+    }
 
-.portfolio-a>.portfolio-box:hover,
-.portfolio-a>.portfolio-box:focus {
+.portfolio-a>:hover,
+.portfolio-a>:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--anim-icon);
 }
 
 .portfolio-projects {
@@ -675,6 +681,31 @@ p {
 
 .portfolio-card {
     width: 370px;
+}
+
+.portfolio-thumb {
+    position: relative;
+    overflow: hidden;
+    
+}
+.portfolio-overley {
+    position: absolute;
+    bottom: 0;
+    width: 100%; height: 100%; 
+    background-color: rgba(33, 150, 243, 0.9);
+    font-size: 18px;
+line-height: calc(28/18);
+letter-spacing: 0.03em;
+color: var(--background-color);
+text-align: center;
+transform: translateY(100%);
+transition: transform 500ms;
+}
+
+.portfolio-thumb:hover .portfolio-overley {transform: translateY(0);}
+
+.portfolio-overley p {
+    padding: 62px, 24px;
 }
 
 /* MODAL */
@@ -697,18 +728,28 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    min-height: 553px;
+    width: 528px;
+    min-height: 581px;
     background-color: var(--background-color);
     padding: 10px;
+    transition: opacity 800ms ease transform 800ms ease;
 }
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
      .modal-button {
         position: absolute;
         top: 8px;
         right: 8px;
         border: 1px solid #212121;
         border-radius: 50%;
+        display: flex;
+        background-color: var(--background-color);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 6px;
       }
 
-      
-
+    .close-icon {
+        display: block;
+    }
+ 
