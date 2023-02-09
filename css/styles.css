@@ -697,7 +697,7 @@ a {
     transition: transform 500ms;
 }
 
-.portfolio-thumb:hover .portfolio-overley {
+.portfolio-a:hover .portfolio-overley {
     transform: translateY(0);
 }
 
