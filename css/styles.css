@@ -708,15 +708,13 @@ a {
     left: 0;
     background-color: rgba(0, 0, 0, 0.2);
     opacity: 1;
-    transition: background-color var(--anim-icon)
-}
+    }
 
 .backdrop.is-hidden {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: color var(--anim-icon)
-}
+    }
 
 .modal {
     position: fixed;
@@ -727,11 +725,15 @@ a {
     min-height: 581px;
     background-color: var(--background-color);
     padding: 10px;
-    transition: var(--anim-icon);
+    /* transition: transform 500ms ease-in; */
+    transition-property: transform;
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  transition-delay: 100ms;
    }
 
 .backdrop.is-hidden .modal {
-    transform: translate(-50%, -50%)  var(--anim-icon) scale(0.6);
+    transform: translate(-20%, -30%) scale(0.7);
 }
 
 .modal-button {
@@ -744,8 +746,7 @@ a {
     background-color: var(--background-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 6px;
-    
-}
+    }
 
 .close-icon {
     display: block;
